@@ -9,4 +9,4 @@
         uri: https://github.com/Azure/azure_preview_modules.git
         source_type: github
         folder_path: /tasks
-        security_token: 15896bbad357660e53bdde0277af82cf76a23124
+        security_token: "{{ token }}"

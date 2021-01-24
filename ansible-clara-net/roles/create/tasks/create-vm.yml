@@ -9,8 +9,8 @@
         notes: Olá, sou a VM desse Ansible Lab
         os_type: linux
         vm_size: Standard_A2_v2
-        user_name: dtladmin
-        password: T1dogcp9!
+        user_name: {{ user }}
+        password: {{ password }}
         lab_subnet:
           virtual_network_name: vn-ansible-lab
           name: vn-ansible-labSubnet
