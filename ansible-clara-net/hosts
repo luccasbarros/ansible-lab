@@ -1,0 +1,11 @@
+[local]
+localhost ansible_connection=local gather_facts=false
+
+
+[luccasbarros]
+3.86.237.238
+18.234.187.174
+52.87.228.85
+54.162.253.116
+3.84.220.224
+34.201.77.74

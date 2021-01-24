@@ -1,0 +1,11 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Create an Ansible Lab
+      azure_rm_devtestlab:
+        resource_group: clara-group
+        name: Clara Lab Ansible
+        location: eastus
+        storage_type: standard
+        premium_data_disk: no
+      register: outpub_lab

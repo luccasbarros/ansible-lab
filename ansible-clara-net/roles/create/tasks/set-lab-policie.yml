@@ -1,0 +1,12 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Setando policie lab
+      azure_rm_devtestlabpolicy:
+        api_profile: latest
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        policy_set_name: policy-clara-set
+        name: policy-clara
+        fact_name: user_owned_lab_vm_count
+        threshold: 5

@@ -1,0 +1,11 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Criando rede virtual
+      azure_rm_devtestlabvirtualnetwork:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: rede-virtual-clara
+        location: eastus
+        description: Rede Virtual do Teste da Clara Net
+      register: output

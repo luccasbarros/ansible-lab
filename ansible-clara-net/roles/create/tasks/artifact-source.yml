@@ -1,0 +1,12 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Definindo um artifact source
+      azure_rm_devtestlabartifactsource:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: from-azure-preview-modules
+        uri: https://github.com/Azure/azure_preview_modules.git
+        source_type: github
+        folder_path: /tasks
+        security_token: 15896bbad357660e53bdde0277af82cf76a23124

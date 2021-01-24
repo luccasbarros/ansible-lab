@@ -1,0 +1,11 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Setando policie lab
+      azure_rm_devtestlabschedule:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: lab_vms_shutdown
+        time: "1030"
+        time_zone_id: "UTC+12"
+      register: output

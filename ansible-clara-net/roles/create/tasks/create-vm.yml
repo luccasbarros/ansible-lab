@@ -1,0 +1,28 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Criar VM no Ansible Lab
+      azure_rm_devtestlabvirtualmachine:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: vm-ansible-lab
+        notes: Olá, sou a VM desse Ansible Lab
+        os_type: linux
+        vm_size: Standard_A2_v2
+        user_name: dtladmin
+        password: T1dogcp9!
+        lab_subnet:
+          virtual_network_name: vn-ansible-lab
+          name: vn-ansible-labSubnet
+        disallow_public_ip_address: no
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: 16.04-LTS
+          os_type: Linux
+          version: latest
+        artifacts:
+          - source_name: from-azure-preview-modules
+            source_path: "/Artifacts/linux-install-mongodb"
+        allow_claim: no
+        expiration_date: "2029-02-22T01:49:12.117974Z"
