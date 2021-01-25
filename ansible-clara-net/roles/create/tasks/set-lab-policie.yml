@@ -6,7 +6,7 @@
         api_profile: latest
         resource_group: clara-net-rg
         lab_name: clara-lab-ansible
-        policy_set_name: myDtlPolicySet
-        name: myDtlPolicy
+        policy_set_name: default
+        name: myDefault
         fact_name: user_owned_lab_vm_count
         threshold: 5
