@@ -1,0 +1,17 @@
+## Vm criada fora do lab se necessário
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Create Default VM
+      azure_rm_virtualmachine:
+        resource_group: clara-net-rg
+        name: test12z
+        vm_size: Standard_A2_v2
+        admin_username: testbro
+        admin_password: T1dogcp9!
+        image:
+          offer: CentOS
+          publisher: OpenLogic
+          sku: '7.1'
+          version: latest
