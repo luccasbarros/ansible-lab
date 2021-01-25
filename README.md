@@ -33,6 +33,6 @@ Editaria o inventory
 Executaria o script de install com o ansible-playbook, e então, logava no AWX com as credenciais padrão
 
 
-## Pra que serve o AWS?
+## Pra que serve o AWX?
 É um projeto de código aberto da Ansible Tower. Nos permite controlar o uso dos projetos em Ansible Tower no ambiente, fornecendo uma interface de usuário baseado em web
 e um mecanismo de tarefas baseado no Ansible. É uma ferramenta de automatização de tarefas, nos permitindo fazer o deploy de aplicações, provisionar servidores, automatizar tarefas, e outras funções.
