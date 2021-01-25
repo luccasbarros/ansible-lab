@@ -26,11 +26,11 @@ Basicamente você armazena essas variáveis em pastas como group_vars ou hosts_v
 e navegando até o grupo ou host por exemplo, você nota a variável criptografada.
 
 ## Como você faria para implementar o AWX?
-Primeiro configuraria a habilitação do repositório epel
-Configuração do Docker e ativação
-Realizaria o clone do repositório do AWS
-Editaria o inventory
-Executaria o script de install com o ansible-playbook, e então, logava no AWX com as credenciais padrão
+Primeiro configuraria a habilitação do repositório epel.
+Configuração do Docker e ativação.
+Realizaria o clone do repositório do AWX.
+Editaria o inventory.
+Executaria o script de install com o ansible-playbook, e então, logava no AWX com as credenciais padrão.
 
 
 ## Pra que serve o AWX?
