@@ -2,7 +2,7 @@
 
 ## Defina o que é:
 ### Tasks:
-R: Tasks são unidades de ação no ansible. São scripts que são executadas do modo como você molda eles. Você tem a possibilidade de executar simultâneas tasks em uma só vez..
+Tasks são unidades de ação no ansible. São scripts que são executadas do modo como você molda eles. Você tem a possibilidade de executar simultâneas tasks em uma só vez..
 
 ### Plays:
 Uma play é um mapeamento entre um conjuntos de hosts especificado por um gerenciador de hosts (normalmente grupos), onde nesses hosts
@@ -37,5 +37,6 @@ Executaria o script de install com o ansible-playbook, e então, logava no AWX c
 É um projeto de código aberto da Ansible Tower. Nos permite controlar o uso dos projetos em Ansible Tower no ambiente, fornecendo uma interface de usuário baseado em web
 e um mecanismo de tarefas baseado no Ansible. É uma ferramenta de automatização de tarefas, nos permitindo fazer o deploy de aplicações, provisionar servidores, automatizar tarefas, e outras funções.
 
-** Observações **: Mantive as senhas porque acredito que não tenha problema. 
+#### Observações: 
+Mantive as senhas porque acredito que não tenha problema. 
 Favor considerar dois dias de estudo de Ansible.
