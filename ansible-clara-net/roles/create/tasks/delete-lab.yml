@@ -1,0 +1,13 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Delete lab
+      azure_rm_devtestlab:
+        resource_group: clara-net-rg
+        name: clara-lab-ansible
+        state: absent
+      register: output
+    - name: Confirmação
+      assert:
+        that:
+          - output.changed

@@ -1,11 +1,11 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Listar as fontes dos artefatos
-      azure_rm_devtestlabartifactsource_facts:
+    - name: Listar os artefatos
+      azure_rm_devtestlabartifact_facts:
         resource_group: clara-net-rg
         lab_name: clara-lab-ansible
+        artifact_source_name: public repo
       register: output
     - debug:
         var: output
-~

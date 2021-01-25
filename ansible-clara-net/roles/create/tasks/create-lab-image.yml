@@ -1,0 +1,10 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Criar a imagem do Ansible Lab
+      azure_rm_devtestlabcustomimage:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: myLabImage
+        source_vm: vm-ansible-lab
+        linux_os_state: non_deprovisioned

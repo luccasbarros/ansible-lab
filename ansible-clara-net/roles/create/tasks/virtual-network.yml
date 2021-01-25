@@ -7,5 +7,5 @@
         lab_name: clara-lab-ansible
         name: rede-virtual-clara
         location: eastus
-        description: Rede Virtual do Teste da Clara Net
+        description: Rede Virtual do Teste da Claranet
       register: output

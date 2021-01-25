@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Create a resource group
+    - name: Create resource group
       azure_rm_resourcegroup:
-        name: clara-group
+        name: clara-net-rg
         location: eastus

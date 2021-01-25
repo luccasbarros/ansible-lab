@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Setando policie lab
+    - name: Setando Shedule Lab
       azure_rm_devtestlabschedule:
         resource_group: clara-net-rg
         lab_name: clara-lab-ansible

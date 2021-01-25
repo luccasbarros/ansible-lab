@@ -3,9 +3,9 @@
   tasks:
     - name: Create an Ansible Lab
       azure_rm_devtestlab:
-        resource_group: clara-group
-        name: Clara Lab Ansible
+        resource_group: clara-net-rg
+        name: clara-lab-ansible
         location: eastus
         storage_type: standard
-        premium_data_disk: no
+        premium_data_disks: no
       register: outpub_lab
