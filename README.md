@@ -38,5 +38,6 @@ Executaria o script de install com o ansible-playbook, e então, logava no AWX c
 e um mecanismo de tarefas baseado no Ansible. É uma ferramenta de automatização de tarefas, nos permitindo fazer o deploy de aplicações, provisionar servidores, automatizar tarefas, e outras funções.
 
 #### Observações: 
-Mantive as senhas porque acredito que não tenha problema. 
-Favor considerar dois dias de estudo de Ansible.
+Mantive as senhas porque acredito que não tenha problema. <br />
+Favor considerar dois dias de estudo de Ansible. <br />
+Todos os testes foram feitos no terminal do Azure.
