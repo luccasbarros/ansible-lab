@@ -1,0 +1,111 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: clara-net-rg
+        location: eastus
+
+    - name: Create an Ansible Lab
+      azure_rm_devtestlab:
+        resource_group: clara-net-rg
+        name: clara-lab-ansible
+        location: eastus
+        storage_type: standard
+        premium_data_disks: no
+      register: outpub_lab
+
+    - name: Setando lab policies
+      azure_rm_devtestlabpolicy:
+        api_profile: latest
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        policy_set_name: default
+        name: myDefault
+        fact_name: user_owned_lab_vm_count
+        threshold: 5
+
+    - name: Setando Shedule Lab
+      azure_rm_devtestlabschedule:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: lab_vms_shutdown
+        time: "1030"
+        time_zone_id: "UTC+12"
+      register: output
+
+    - name: Criando rede virtual
+      azure_rm_devtestlabvirtualnetwork:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: rede-virtual-clara
+        location: eastus
+        description: Rede Virtual do Teste da Claranet
+      register: output
+
+    - name: Definindo um artifact source
+      azure_rm_devtestlabartifactsource:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: from-azure-preview-modules
+        uri: https://github.com/Azure/azure_preview_modules.git
+        source_type: github
+        folder_path: /tasks
+        security_token: 15896bbad357660e53bdde0277af82cf76a23124
+
+    - name: Criar VM no Ansible Lab
+      azure_rm_devtestlabvirtualmachine:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: vm-ansible-lab
+        notes: Olá, sou a VM desse ansible lab.
+        os_type: linux
+        vm_size: Standard_A2_v2
+        user_name: dtladmin
+        password: T1dogcp9!
+        lab_subnet:
+          virtual_network_name: rede-virtual-clara
+          name: rede-virtual-claraSubnet
+        disallow_public_ip_address: no
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: 16.04-LTS
+          os_type: Linux
+          version: latest
+
+    - name: Listar as fontes dos artefatos
+      azure_rm_devtestlabartifactsource_facts:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+      register: output
+    - debug:
+        var: output
+
+    - name: Listar os artefatos
+      azure_rm_devtestlabartifact_facts:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        artifact_source_name: public repo
+      register: output
+    - debug:
+        var: output
+
+    - name: Criar a imagem do Ansible Lab
+      azure_rm_devtestlabcustomimage:
+        resource_group: clara-net-rg
+        lab_name: clara-lab-ansible
+        name: myLabImage
+        source_vm: vm-ansible-lab
+        linux_os_state: non_deprovisioned
+
+    - name: Delete lab
+      azure_rm_devtestlab:
+        resource_group: clara-net-rg
+        name: clara-lab-ansible
+        state: absent
+      register: output
+    - name: Confirmação
+      assert:
+        that:
+          - output.changed

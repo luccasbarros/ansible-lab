@@ -1,3 +1,4 @@
+## Verificar token github. Ele pode ter expirado. Necessário utilizar um token de uma conta github
 - hosts: localhost
   connection: local
   tasks:

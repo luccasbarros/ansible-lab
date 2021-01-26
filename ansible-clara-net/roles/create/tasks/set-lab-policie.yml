@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Setando lab policie
+    - name: Setando lab policies
       azure_rm_devtestlabpolicy:
         api_profile: latest
         resource_group: clara-net-rg
